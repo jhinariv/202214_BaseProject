@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer';
 import { IsNotEmpty, IsString, IsDate, IsEmail } from 'class-validator';
 
 export class PartnerDto {
@@ -11,7 +12,8 @@ export class PartnerDto {
   readonly email: string;
 
   @IsDate()
+  @Type(() => Date)
   @IsNotEmpty()
-  readonly birthday: string;
+  readonly birthday: Date;
 
 }

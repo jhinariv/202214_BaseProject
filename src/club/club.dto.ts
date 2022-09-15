@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer';
 import { IsNotEmpty, IsString, IsUrl, IsDate } from 'class-validator';
 
 export class ClubDto {
@@ -7,8 +8,9 @@ export class ClubDto {
   readonly name: string;
 
   @IsDate()
+  @Type(() => Date)
   @IsNotEmpty()
-  readonly foundation_date: string;
+  readonly foundation_date: Date;
 
   @IsUrl()
   @IsNotEmpty()
