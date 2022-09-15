@@ -6,9 +6,10 @@ import { ClubModule } from './club/club.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ClubEntity } from './club/club.entity';
 import { PartnerEntity } from './partner/partner.entity';
+import { PartnerClubModule } from './partner-club/partner-club.module';
 
 @Module({
-  imports: [PartnerModule, ClubModule,
+  imports: [PartnerModule, ClubModule, PartnerClubModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
