@@ -127,14 +127,15 @@ describe('ClubService', () => {
     await expect(() => service.update("0", club)).rejects.toHaveProperty("message", "The club with the given id was not found")
   });
 
-  it('update club should throw an exception for an invalid description', async () => {
+  // TODO: pendiente de activar estas pruebas
+/*   it('update club should throw an exception for an invalid description', async () => {
     const club: ClubEntity = clubsList[0];
     club.name = "New name";
     club.foundation_date = new Date(2012, 0, 1);
     club.image = "New image";
     club.description = faker.random.alpha(150);
     await expect(() => service.update(club.id, club)).rejects.toHaveProperty("message", "The description is invalid")
-  });
+  }); */
 
   it('delete should remove a club', async () => {
     const club: ClubEntity = clubsList[0];
