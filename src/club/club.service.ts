@@ -51,10 +51,15 @@ export class ClubService {
 
 }
 
-function count(string) {
-  var count = {};
+function count(string: string) {
+  let count = {};
   string.split('').forEach(function(s) {
-    count[s] ? count[s]++ : count[s] = 1;
+    if (count[s]) {
+      count[s]++
+    }
+    else {
+      count[s] = 1;
+    }
   });
   return count;
 }
