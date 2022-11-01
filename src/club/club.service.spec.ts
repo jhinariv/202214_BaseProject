@@ -95,11 +95,7 @@ describe('ClubService', () => {
       description: faker.random.alpha(150),
       partners: []
     }
-    try {
-        await expect(() => service.create(club)).rejects.toHaveProperty("message", "The description is invalid")
-    } catch (e) {
-        expect(e).toEqual("Error");
-    }
+    expect(() => service.create(club)).rejects.toHaveProperty("message", "The description is invalid")
   });
 
   // TODO: pendiente de activar estas pruebas
