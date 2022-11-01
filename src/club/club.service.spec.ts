@@ -86,35 +86,6 @@ describe('ClubService', () => {
     expect(storedClub.description).toEqual(newClub.description)
   });
 
-  it('create club should throw an exception for an invalid description', async () => {
-    const club: ClubEntity = {
-      id: "",
-      name: faker.company.name(),
-      foundation_date: faker.date.past(),
-      image: faker.image.business(),
-      description: faker.random.alpha(150),
-      partners: []
-    }
-    expect(() => service.create(club)).rejects.toHaveProperty("message", "The description is invalid")
-  });
-
-  // TODO: pendiente de activar estas pruebas
-/*   it('update should modify a club', async () => {
-    const club: ClubEntity = clubsList[0];
-    club.name = "New name";
-    club.foundation_date = new Date(2012, 0, 1);
-    club.image = "New image";
-    club.description = "New description";
-    const updatedClub: ClubEntity = await service.update(club.id, club);
-    expect(updatedClub).not.toBeNull();
-    const storedClub: ClubEntity = await repository.findOne({ where: { id: club.id } })
-    expect(storedClub).not.toBeNull();
-    expect(storedClub.name).toEqual(club.name)
-    expect(storedClub.foundation_date).toEqual(club.foundation_date)
-    expect(storedClub.image).toEqual(club.image)
-    expect(storedClub.description).toEqual(club.description)
-  }); */
-
   it('update should throw an exception for an invalid club', async () => {
     let club: ClubEntity = clubsList[0];
     club = {
@@ -126,16 +97,6 @@ describe('ClubService', () => {
     }
     await expect(() => service.update("0", club)).rejects.toHaveProperty("message", "The club with the given id was not found")
   });
-
-  // TODO: pendiente de activar estas pruebas
-/*   it('update club should throw an exception for an invalid description', async () => {
-    const club: ClubEntity = clubsList[0];
-    club.name = "New name";
-    club.foundation_date = new Date(2012, 0, 1);
-    club.image = "New image";
-    club.description = faker.random.alpha(150);
-    await expect(() => service.update(club.id, club)).rejects.toHaveProperty("message", "The description is invalid")
-  }); */
 
   it('delete should remove a club', async () => {
     const club: ClubEntity = clubsList[0];
