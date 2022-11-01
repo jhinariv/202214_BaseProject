@@ -58,8 +58,8 @@ export class PartnerClubService {
     if (!club)
       throw new BusinessLogicException("The club with the given id was not found", BusinessError.NOT_FOUND)
 
-    for (let i = 0; i < partners.length; i++) {
-      const partner: PartnerEntity = await this.partnerRepository.findOne({ where: { id: partners[i].id } });
+    for (let p of partners) {
+      const partner: PartnerEntity = await this.partnerRepository.findOne({ where: { id: p.id } });
       if (!partner)
         throw new BusinessLogicException("The partner with the given id was not found", BusinessError.NOT_FOUND)
     }
