@@ -20,6 +20,11 @@ export class ClubController {
     return await this.clubService.findOne(clubId);
   }
 
+  @Get(':clubId2')
+  async findOnePruebaDuplicadoConLineaDecodigoSuperHiperLarga(@Param('clubId') clubId: string) {
+    return await this.clubService.findOne(clubId);
+  }
+
   @Post()
   async create(@Body() clubDto: ClubDto) {
     const club: ClubEntity = plainToInstance(ClubEntity, clubDto);
