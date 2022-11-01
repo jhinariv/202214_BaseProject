@@ -51,7 +51,7 @@ export class ClubService {
 
 }
 
-function count(string) {
+function count(string: string) {
   let count = {};
   string.split('').forEach(function(s) {
     if (count[s]) {
